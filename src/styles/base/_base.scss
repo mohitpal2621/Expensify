@@ -7,6 +7,21 @@ body{
     font-size: 2rem;
 }
 
-.active{
+header h1{
+    font-weight: 900;
+}
+
+.navbar{
     font-weight:bold;
+    text-decoration: none;
+}
+
+
+#navbars a.active{
+    color: rgb(56, 209, 207);
+}
+
+#navbars a.inactive{
+    color: rgb(0, 0, 0);
+    font-weight: bolder;
 }
