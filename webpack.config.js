@@ -1,28 +1,35 @@
 const path = require('path');
 
 module.exports = {
-    entry: './src/app.js',
+    mode: 'development',
+    entry: './src/pg/redux101.js',
     output: {
         path: path.join(__dirname, 'public'),
         filename: 'bundle.js'
     },
     module: {
         rules:[{
-            loader: 'babel-loader',
-            test: /\.js$/,
-            exclude: /node_modules/
-        }, {
-            test: /\.s?[ac]ss$/,
-            use: [
-                'style-loader',
-                'css-loader',
-                'sass-loader'
-            ]
-        }]
+                loader: 'babel-loader',
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/
+            }, {
+                test: /\.s?[ac]ss$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader'
+                ]
+            }, 
+            {
+                test: /\.m?js$/,
+                exclude: /(node_modules|bower_components)/,
+                loader: 'babel-loader'
+            }
+        ]
     },
-    devtool: 'cheap-module-eval-source-map',
+    devtool: 'eval-cheap-module-source-map',
     devServer: {
-        contentBase: path.join(__dirname, 'public'),
+        static: path.join(__dirname, 'public'),
         historyApiFallback: true
     }
 };

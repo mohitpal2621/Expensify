@@ -5,7 +5,7 @@ import EditExpense from '../components/EditExpense';
 import AddExpense from '../components/AddExpense';
 import ExpenseDashboardPage from '../components/ExpenseDashboard';
 import HelpPage from '../components/HelpPage';
-import { BrowserRouter, Routes, Route, Link, NavLink } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
 const AppRouter = () => (
@@ -14,7 +14,7 @@ const AppRouter = () => (
             <Routes>
                 <Route path="/" element={<ExpenseDashboardPage />} />
                 <Route path="/create" element={<AddExpense />} />
-                <Route path="/edit" element={<EditExpense />} />
+                <Route path="/edit/:id" element={<EditExpense />} />
                 <Route path="/help" element={<HelpPage />} />
                 <Route path="*" element={<NotFound />} /> 
             </Routes>

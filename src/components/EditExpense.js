@@ -1,6 +1,10 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 
-const EditExpense = () => {
+const EditExpense = (props) => {
+    let { id } = useParams();
+    console.log(useParams());
+
     return (
         <div>
             This is from my EditExpense comp.

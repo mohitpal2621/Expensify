@@ -1,7 +1,8 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 
 const Header = () => {
+
     return (
         <header>
             <h1>Expensify</h1>
@@ -9,22 +10,17 @@ const Header = () => {
                 <NavLink to="/" className={({ isActive }) => {
                     return isActive ? "active" : "inactive";
                 }}>
-                    To Home
+                    Home
                 </NavLink>
                 <NavLink to="/create" className={({ isActive }) => {
                     return isActive ? "active" : "inactive";
                 }}>
-                    To Create Expense
-                </NavLink>
-                <NavLink to="/edit" className={({ isActive }) => {
-                    return isActive ? "active" : "inactive";
-                }}>
-                    To Edit Expense
+                    Create
                 </NavLink>
                 <NavLink to="/help" className={({ isActive }) => {
                     return isActive ? "active" : "inactive";
                 }}>
-                    To Help Expense
+                    Help
                 </NavLink>
             </nav>
         </header>
