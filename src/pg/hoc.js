@@ -8,15 +8,6 @@ const Info = (props) => (
     </div>
 );
 
-const withAdminWarning = (WrappedComp) => {
-    return (props) => (
-        <div>
-            {props.isAdmin && <p>This is private info. Please don't share.</p>}
-            <WrappedComp {...props} />
-        </div>
-    )
-};
-
 const requireAuthentication = (WrappedComp) => {
     return (props) => (
         <div>
@@ -27,6 +18,17 @@ const requireAuthentication = (WrappedComp) => {
 
 const RequireAuth = requireAuthentication(Info);
 
-const AdminInfo = withAdminWarning(Info);
+// const withAdminWarning = (WrappedComp) => {
+//     return (props) => (
+//         <div>
+//             {props.isAdmin && <p>This is private info. Please don't share.</p>}
+//             <WrappedComp {...props} />
+//         </div>
+//     )
+// };
+
+
+
+// const AdminInfo = withAdminWarning(Info);
 
 ReactDOM.render(<RequireAuth isAuth={false} info="This is the details" />, document.getElementById("app"));

@@ -1,5 +1,4 @@
 // EXPENSE REDUCER
-
 const expensesReducerDefaultState = [];
 
 // Reduces Functions
