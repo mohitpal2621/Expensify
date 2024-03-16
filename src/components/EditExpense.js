@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 const EditExpense = (props) => {
     let { id } = useParams();
-    console.log(useParams());
+    console.log(id);
 
     return (
         <div>

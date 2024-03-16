@@ -51,7 +51,6 @@ const setEndDate = (edDate) => ({
 });
 
 
-
 // Default States
 const expensesReducerDefaultState = [];
 
@@ -61,7 +60,6 @@ const filtersReducerDefaultState = {
     startDate: undefined,
     endDate: undefined
 };
-
 
 // Reduces Functions
 const expenseReducer = (state = expensesReducerDefaultState, action) => {
@@ -151,20 +149,3 @@ const expFour = store.dispatch(addExpense({description: "Grocery", amount: 700, 
 // store.dispatch(setEndDate(1000));
 // store.dispatch(setEndDate());
 store.dispatch(sortByAmount());
-
-
-const demoState = {
-    expenses: [{
-        id: 'asffasd',
-        description: 'Jan Rent',
-        note: 'This was the final payment for the address',
-        amount: 3000,
-        createdAt: 0
-    }],
-    filters: {
-        text: 'rent',
-        sortBy: 'date', // date or amount
-        startDate: undefined,
-        endDate: undefined
-    }
-};

@@ -25,3 +25,9 @@ header h1{
     color: rgb(0, 0, 0);
     font-weight: bolder;
 }
+
+input::placeholder, textarea::placeholder {
+    /* Your CSS styles for the placeholder text */
+    color: #999; /* for example */
+    font-style: italic; /* for example */
+}
