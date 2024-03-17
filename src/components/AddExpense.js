@@ -1,12 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
 import { addExpense } from "../actions/expenses";
+import { useNavigate } from "react-router-dom";
 import ExpenseForm from "./ExpenseForm";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 const AddExpense = (props) => {
-    const navigate = useNavigate(); // Use useNavigate hook to get navigation function
-
+    const nav = useNavigate();
     return (
         <div>
             <h1>Add Expense</h1>
@@ -14,7 +13,7 @@ const AddExpense = (props) => {
                 onSubmit={(expense) => {
                     console.log(expense);
                     props.dispatch(addExpense(expense));
-                    navigate('/'); // Use navigate function to navigate
+                    nav('/');
                 }}
             />
         </div>
