@@ -21,5 +21,4 @@ const EditExpense = (props) => {
     )
 };
 
-
 export default EditExpense;
