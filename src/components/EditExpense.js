@@ -1,24 +1,34 @@
+// Using Hooks instead of connect()
 import React from "react";
-import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
 import ExpenseForm from "./ExpenseForm";
-import moment from "moment";
+import { editExpense, removeExpense } from "../actions/expenses";
 
-const EditExpense = (props) => {
+const EditExpense = () => {
     const { id } = useParams();
+    const dispatch = useDispatch();
+    const nav = useNavigate();
     const exp = useSelector(state => state.expenses.find((exp) => exp.id === id));
-    console.log(exp);
     
     return (
         <div>
             <ExpenseForm
                 expense={exp}
                 onSubmit={(exp) => {
-                    console.log("updated", exp);
+                    dispatch(editExpense(id, exp));
+                    nav("/");
                 }}
             />
+            <button onClick={() => {
+                    dispatch(removeExpense(id));
+                    nav("/");
+                }}
+            >
+                Remove
+            </button>
         </div>
-    )
+    );
 };
 
 export default EditExpense;

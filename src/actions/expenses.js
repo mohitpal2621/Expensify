@@ -20,7 +20,7 @@ export const removeExpense = (id) => ({
 
 // EDIT_EXPENSE action generator
 export const editExpense = (id, updates) => ({
-    type: 'EDITEXPENSE',
-    id,
-    updates
+        type: 'EDITEXPENSE',
+        id,
+        updates
 });

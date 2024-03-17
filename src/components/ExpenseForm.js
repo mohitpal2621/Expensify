@@ -36,16 +36,16 @@ export default class ExpenseForm extends React.Component {
     }
 
     onDateChange = (createdAt) => {
-        console.log(`createAt : ${createdAt}`);
-        if(createdAt)
+        if(createdAt){
             this.setState(() => ({createdAt}));
+        }
     }
 
     onFocusChange= ({focused}) => {
         this.setState(() => ({calendarFocused: focused}))
     }
 
-    onSubmit = (e) => {
+    onSubmit = (e) => { 
         e.preventDefault();
         if(!this.state.description || !this.state.amount){
             this.setState(() => (
@@ -60,7 +60,6 @@ export default class ExpenseForm extends React.Component {
                 note: this.state.note
             });
         }
-
     }
 
     render() {
