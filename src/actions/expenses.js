@@ -1,7 +1,7 @@
 import { v4 as uuid } from "uuid";
 
 // ADD_EXPENSE action generator
-export const addExpense = ({ description='', note='', amount=0, createdAt=0 }) => ({
+export const addExpense = ({ description='', note='', amount=0, createdAt=0 } = {}) => ({
     type: 'ADDEXPENSE',
     expense: {
         id: uuid(),
@@ -20,7 +20,7 @@ export const removeExpense = (id) => ({
 
 // EDIT_EXPENSE action generator
 export const editExpense = (id, updates) => ({
-        type: 'EDITEXPENSE',
-        id,
-        updates
+    type: 'EDITEXPENSE',
+    id,
+    updates
 });
