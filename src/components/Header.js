@@ -5,7 +5,7 @@ const Header = () => {
 
     return (
         <header>
-            <h1>Expensify</h1>
+            <h1>Expensify</h1>          
             <nav id="navbars">
                 <NavLink to="/" className={({ isActive }) => {
                     return isActive ? "active" : "inactive";
@@ -16,11 +16,6 @@ const Header = () => {
                     return isActive ? "active" : "inactive";
                 }}>
                     Create
-                </NavLink>
-                <NavLink to="/help" className={({ isActive }) => {
-                    return isActive ? "active" : "inactive";
-                }}>
-                    Help
                 </NavLink>
             </nav>
         </header>
