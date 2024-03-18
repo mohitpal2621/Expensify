@@ -6,7 +6,7 @@ import Header from '../../components/Header';
 
 test("Should render Header correctly", () => {
     render(
-        <MemoryRouter> {/* Wrap Header inside MemoryRouter */}
+        <MemoryRouter> 
             <Header />
         </MemoryRouter>
     );
