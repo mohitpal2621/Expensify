@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render expense form WITH props correctly 1`] = `
+<div>
+  <div>
+    <form>
+      <input
+        placeholder="Description"
+        type="text"
+        value="Rent"
+      />
+      <input
+        placeholder="Amount"
+        type="text"
+        value="14000.94"
+      />
+      <div>
+        SingleDatePicker
+      </div>
+      <textarea
+        placeholder="Add a note for your expense (optional)"
+      />
+      <button>
+        Add Expense
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Should render expense form correctly 1`] = `
+<div>
+  <div>
+    <form>
+      <input
+        placeholder="Description"
+        type="text"
+        value=""
+      />
+      <input
+        placeholder="Amount"
+        type="text"
+        value=""
+      />
+      <div>
+        SingleDatePicker
+      </div>
+      <textarea
+        placeholder="Add a note for your expense (optional)"
+      />
+      <button>
+        Add Expense
+      </button>
+    </form>
+  </div>
+</div>
+`;
