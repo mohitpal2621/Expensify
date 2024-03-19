@@ -12,4 +12,4 @@ const ExpenseDashboardPage = () => {
 };
 
 
-export default ExpenseDashboardPage
+export default ExpenseDashboardPage;

@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render expense list with empty expenses 1`] = `
+<div>
+  <div>
+    <h1>
+      This is the Expense List
+    </h1>
+    <p>
+      No Expense
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Should render expense list with expenses 1`] = `
+<div>
+  <div>
+    <h1>
+      This is the Expense List
+    </h1>
+    <div>
+      <a
+        href="/edit/1"
+      >
+        <h3>
+          Gum
+        </h3>
+      </a>
+      <p>
+        140
+         - 
+        0
+      </p>
+    </div>
+    <div>
+      <a
+        href="/edit/2"
+      >
+        <h3>
+          Rent
+        </h3>
+      </a>
+      <p>
+        14000.94
+         - 
+        -345600000
+      </p>
+    </div>
+    <div>
+      <a
+        href="/edit/3"
+      >
+        <h3>
+          Credit
+        </h3>
+      </a>
+      <p>
+        113221.8
+         - 
+        345600000
+      </p>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render Header correctly 1`] = `
+<div>
+  <header>
+    <h1>
+      Expensify
+    </h1>
+    <nav
+      id="navbars"
+    >
+      <a
+        aria-current="page"
+        class="active"
+        href="/"
+      >
+        Home
+      </a>
+      <a
+        class="inactive"
+        href="/create"
+      >
+        Create
+      </a>
+    </nav>
+  </header>
+</div>
+`;

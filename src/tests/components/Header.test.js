@@ -5,11 +5,10 @@ import { MemoryRouter } from 'react-router-dom'; // Import MemoryRouter
 import Header from '../../components/Header';
 
 test("Should render Header correctly", () => {
-    render(
-        <MemoryRouter> 
+    const { container } = render(
+        <MemoryRouter>
             <Header />
         </MemoryRouter>
     );
-    const header = screen.getByRole('banner');
-    expect(header).toBeInTheDocument();
+    expect(container).toMatchSnapshot();
 });
