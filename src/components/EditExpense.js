@@ -5,7 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import ExpenseForm from "./ExpenseForm";
 import { editExpense, removeExpense } from "../actions/expenses";
 
-const EditExpense = () => {
+export const EditExpense = () => {
     const { id } = useParams();
     const dispatch = useDispatch();
     const nav = useNavigate();

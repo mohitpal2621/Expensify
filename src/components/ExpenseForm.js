@@ -4,17 +4,14 @@ import 'react-dates/initialize';
 import { SingleDatePicker } from "react-dates";
 
 export default class ExpenseForm extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            description: props.expense ? props.expense.description : '',
-            note: props.expense ? props.expense.note : '',
-            amount: props.expense ? props.expense.amount : '',
-            createdAt: props.expense ? moment(props.expense.createdAt): moment(),
-            calendarFocused: false,
-            error: ''
-        };
-    }
+    state = {
+        description: this.props.expense ? this.props.expense.description : '',
+        note: this.props.expense ? this.props.expense.note : '',
+        amount: this.props.expense ? this.props.expense.amount : '',
+        createdAt: this.props.expense ? moment(this.props.expense.createdAt) : moment(),
+        calendarFocused: false,
+        error: ''
+    };
 
     onDescChange = (e) => {
         this.setState(() => (
