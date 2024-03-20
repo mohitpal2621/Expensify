@@ -1,26 +1,143 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Should render expense form WITH props correctly 1`] = `
+exports[`Should call onSubmit PROP for valid form submission 1`] = `
 <div>
   <div>
-    <form>
+    <form
+      data-testid="expense-form"
+    >
       <input
+        data-testid="description-input"
         placeholder="Description"
         type="text"
-        value="Rent"
+        value="Gum"
       />
       <input
+        data-testid="amount-input"
         placeholder="Amount"
         type="text"
-        value="14000.94"
+        value="140"
       />
       <div>
         SingleDatePicker
       </div>
       <textarea
+        data-testid="note-textarea"
         placeholder="Add a note for your expense (optional)"
       />
-      <button>
+      <button
+        data-testid="expense-form-submit"
+      >
+        Add Expense
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Should render ERROR for invalid form submission 1`] = `
+<div>
+  <div>
+    <form
+      data-testid="expense-form"
+    >
+      <input
+        data-testid="description-input"
+        placeholder="Description"
+        type="text"
+        value=""
+      />
+      <input
+        data-testid="amount-input"
+        placeholder="Amount"
+        type="text"
+        value=""
+      />
+      <div>
+        SingleDatePicker
+      </div>
+      <textarea
+        data-testid="note-textarea"
+        placeholder="Add a note for your expense (optional)"
+      />
+      <button
+        data-testid="expense-form-submit"
+      >
+        Add Expense
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Should render ERROR for invalid form submission 2`] = `
+<div>
+  <div>
+    <form
+      data-testid="expense-form"
+    >
+      <input
+        data-testid="description-input"
+        placeholder="Description"
+        type="text"
+        value=""
+      />
+      <input
+        data-testid="amount-input"
+        placeholder="Amount"
+        type="text"
+        value=""
+      />
+      <div>
+        SingleDatePicker
+      </div>
+      <textarea
+        data-testid="note-textarea"
+        placeholder="Add a note for your expense (optional)"
+      />
+      <p>
+        Please provide description and amount.
+      </p>
+      <button
+        data-testid="expense-form-submit"
+      >
+        Add Expense
+      </button>
+    </form>
+  </div>
+</div>
+`;
+
+exports[`Should render expense form WITH props correctly 1`] = `
+<div>
+  <div>
+    <form
+      data-testid="expense-form"
+    >
+      <input
+        data-testid="description-input"
+        placeholder="Description"
+        type="text"
+        value="Credit"
+      />
+      <input
+        data-testid="amount-input"
+        placeholder="Amount"
+        type="text"
+        value="113221.8"
+      />
+      <div>
+        SingleDatePicker
+      </div>
+      <textarea
+        data-testid="note-textarea"
+        placeholder="Add a note for your expense (optional)"
+      >
+        Credit card bills
+      </textarea>
+      <button
+        data-testid="expense-form-submit"
+      >
         Add Expense
       </button>
     </form>
@@ -31,13 +148,17 @@ exports[`Should render expense form WITH props correctly 1`] = `
 exports[`Should render expense form correctly 1`] = `
 <div>
   <div>
-    <form>
+    <form
+      data-testid="expense-form"
+    >
       <input
+        data-testid="description-input"
         placeholder="Description"
         type="text"
         value=""
       />
       <input
+        data-testid="amount-input"
         placeholder="Amount"
         type="text"
         value=""
@@ -46,9 +167,12 @@ exports[`Should render expense form correctly 1`] = `
         SingleDatePicker
       </div>
       <textarea
+        data-testid="note-textarea"
         placeholder="Add a note for your expense (optional)"
       />
-      <button>
+      <button
+        data-testid="expense-form-submit"
+      >
         Add Expense
       </button>
     </form>

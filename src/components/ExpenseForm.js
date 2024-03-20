@@ -46,6 +46,7 @@ export default class ExpenseForm extends React.Component {
 
     onSubmit = (e) => { 
         e.preventDefault();
+
         if(!this.state.description || !this.state.amount){
             this.setState(() => (
                 {error: "Please provide description and amount."}
@@ -64,21 +65,24 @@ export default class ExpenseForm extends React.Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.onSubmit}>
+                <form onSubmit={this.onSubmit} data-testid="expense-form">
                     <input 
                         type="text"
                         placeholder="Description"
                         autoFocus
                         value={this.state.description}
                         onChange={this.onDescChange}
+                        data-testid="description-input"
                     />
                     <input 
                         type="text"
                         value={this.state.amount}
                         placeholder="Amount"
                         onChange={this.onAmountChange}
+                        data-testid="amount-input"
                     />
                     <SingleDatePicker
+                        id="date"
                         date={this.state.createdAt}
                         focused={this.state.calendarFocused}
                         onDateChange={this.onDateChange}
@@ -90,10 +94,11 @@ export default class ExpenseForm extends React.Component {
                         placeholder="Add a note for your expense (optional)"
                         value={this.state.note}
                         onChange={this.onNoteChange}
+                        data-testid="note-textarea"
                     >
                     </textarea>
                     {this.state.error && <p>{this.state.error}</p>}
-                    <button>Add Expense</button>
+                    <button data-testid="expense-form-submit">Add Expense</button>
                 </form>
             </div>
         );
