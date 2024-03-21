@@ -3,6 +3,7 @@ import ExpenseListFilters from "./ExpenseListFilters";
 import ExpenseList from "./ExpenseList";
 
 const ExpenseDashboardPage = () => {
+    console.log("IN DASHBOARD");
     return (
         <div>
             <ExpenseListFilters/>

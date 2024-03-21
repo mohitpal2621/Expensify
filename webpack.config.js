@@ -1,7 +1,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-
 module.exports = {
     mode: 'development',
     entry: './src/app.js',
@@ -40,8 +39,6 @@ module.exports = {
         maxAssetSize: 512000
     },
     plugins: [
-        new MiniCssExtractPlugin({
-            filename: 'styles.css'
-        })
+        new MiniCssExtractPlugin({filename: 'styles.css'})
     ]
 };
