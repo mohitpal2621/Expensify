@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const curr = Intl.NumberFormat("en-IN", {
     style: "currency",           //Decimal, percent or currency
     currency: "INR",             //ISO code for countries' currencies
-    currencyDisplay: "symbol",   //symbol, code, name
+    currencyDisplay: "code",   //symbol, code, name
     useGrouping: "auto",
     minimumIntegerDigits: 1,
     maximumFractionDigits: 10,
@@ -18,7 +18,7 @@ const ExpenseListItem = ({ id, description, amount, createdAt }) => (
             <h3>{description}</h3>
         </Link>
         <p>
-            {curr.format(amount)} 
+            {curr.format(amount).replace("INR", "Rs.")} 
             - 
             {moment(createdAt).format('MMMM Do, YYYY')}
         </p>
