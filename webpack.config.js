@@ -5,32 +5,34 @@ module.exports = {
     mode: 'development',
     entry: './src/app.js',
     output: {
-        path: path.join(__dirname, 'public'),
-        filename: 'bundle.js'
+        path: path.resolve(__dirname, 'public', 'dist'),
+        filename: 'bundle.js',
+        publicPath: '/dist/' // This is important for correct asset loading in the browser
     },
     module: {
-        rules:[{
-                loader: 'babel-loader',
+        rules: [
+            {
                 test: /\.(js|jsx)$/,
-                exclude: /node_modules/
-            }, {
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader'
+                }
+            },
+            {
                 test: /\.s?[ac]ss$/,
                 use: [
                     MiniCssExtractPlugin.loader,
                     'css-loader',
                     'sass-loader'
                 ]
-            }, 
-            {
-                test: /\.m?js$/,
-                exclude: /(node_modules|bower_components)/,
-                loader: 'babel-loader'
             }
         ]
     },
     devtool: 'eval-cheap-module-source-map',
     devServer: {
-        static: path.join(__dirname, 'public'),
+        static: {
+            directory: path.resolve(__dirname, 'public')
+        }, // This should point to your public directory
         historyApiFallback: true
     },
     performance: {
@@ -39,6 +41,8 @@ module.exports = {
         maxAssetSize: 512000
     },
     plugins: [
-        new MiniCssExtractPlugin({filename: 'styles.css'})
+        new MiniCssExtractPlugin({
+            filename: 'styles.css'
+        })
     ]
 };
