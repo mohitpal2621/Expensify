@@ -11,9 +11,9 @@ exports[`Should render a list item with given expense 1`] = `
       </h3>
     </a>
     <p>
-      140
-       - 
-      0
+      ₹140.00
+      -
+      January 1st, 1970
     </p>
   </div>
 </div>
