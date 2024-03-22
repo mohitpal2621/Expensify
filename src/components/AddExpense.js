@@ -8,8 +8,6 @@ import ExpenseForm from "./ExpenseForm";
 export const AddExpense = (props) => {
     const nav = useNavigate();
     const handleAddExpense=(expense) => {
-        console.log("Submitting expense:", expense);
-
         // this.props.dispatch(addExpense(expense))
         props.addExpense(expense);
         nav('/');

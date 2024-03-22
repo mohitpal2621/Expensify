@@ -2,6 +2,9 @@
 import React from "react";
 import { render, screen } from '@testing-library/react';
 import ExpenseDashboardPage from "../../components/ExpenseDashboard";
+import { MemoryRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import configureStore from "../../store/configureStore";
 
 // This line of code is using Jest's jest.mock() function to mock the ExpenseListFilters component. 
 // When you provide a module path to jest.mock(), Jest replaces the module with a mock implementation. 
@@ -15,6 +18,13 @@ jest.mock("../../components/ExpenseListFilters", () => () => <div>Mock ExpenseLi
 jest.mock("../../components/ExpenseList", () => () => <div>Mock ExpenseList</div>);
 
 test("should render the dashboard page", () => {
-    const {container} = render(<ExpenseDashboardPage/>);
+    const store = configureStore();
+    const {container} = render(
+        <Provider store={store}>
+            <MemoryRouter>
+                <ExpenseDashboardPage/>
+            </MemoryRouter>
+        </Provider>
+    );
     expect(container).toMatchSnapshot();
 });

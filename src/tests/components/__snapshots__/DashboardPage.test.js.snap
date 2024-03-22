@@ -6,6 +6,7 @@ exports[`should render the dashboard page 1`] = `
     <div>
       Mock ExpenseListFilters
     </div>
+    <div />
     <div>
       Mock ExpenseList
     </div>
