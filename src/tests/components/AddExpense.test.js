@@ -7,6 +7,7 @@ import configureStore from '../../store/configureStore';
 import { AddExpense } from '../../components/AddExpense'; // Import the unconnected component
 import expenses from '../fixtures/expenses';
 
+
 test("Should render Add Expense Page correctly", () => {
     const store = configureStore();
     console.log(store.getState());
