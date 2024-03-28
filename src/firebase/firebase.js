@@ -10,7 +10,7 @@ import * as firebase from "firebase/database";
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_API_KEY,
   authDomain: process.env.FIREBASE_API_AUTHDOMAIN,
-  projectId: "expensify-test-9978b",
+  projectId: process.env.FIREBASE_API_PROJECTID,
   storageBucket: process.env.FIREBASE_API_STORAGEBUCKET,
   messagingSenderId: process.env.FIREBASE_API_MESSAGINGSENDERID,
   appId: process.env.FIREBASE_API_APPID,
