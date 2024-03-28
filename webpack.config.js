@@ -1,5 +1,15 @@
 const path = require('path');
+const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+
+if(process.env.NODE_ENV === 'test'){
+    console.log("WE ARE IN TEST");
+    require('dotenv').config({ path: '.env.test' });
+}else if(process.env.NODE_ENV === 'development'){
+    require('dotenv').config({ path: '.env.development' });
+}
 
 module.exports = {
     mode: 'development',
@@ -43,6 +53,15 @@ module.exports = {
     plugins: [
         new MiniCssExtractPlugin({
             filename: 'styles.css'
+        }),
+        new webpack.DefinePlugin({
+            'process.env.FIREBASE_API_KEY': JSON.stringify(process.env.FIREBASE_API_KEY),
+            'process.env.FIREBASE_API_AUTHDOMAIN': JSON.stringify(process.env.FIREBASE_API_AUTHDOMAIN),
+            'process.env.FIREBASE_API_PROJECTID': JSON.stringify(process.env.FIREBASE_API_PROJECTID),
+            'process.env.FIREBASE_API_STORAGEBUCKET': JSON.stringify(process.env.FIREBASE_API_STORAGEBUCKET),
+            'process.env.FIREBASE_API_MESSAGINGSENDERID': JSON.stringify(process.env.FIREBASE_API_MESSAGINGSENDERID),
+            'process.env.FIREBASE_API_APPID': JSON.stringify(process.env.FIREBASE_API_APPID),
+            'process.env.FIREBASE_API_MEASUREMENTID': JSON.stringify(process.env.FIREBASE_API_KEY),
         })
     ]
 };

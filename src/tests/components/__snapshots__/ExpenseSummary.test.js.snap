@@ -9,7 +9,7 @@ exports[`ExpenseSummary component renders with multiple expenses 1`] = `
        
       expenses
        totalling 
-      Rs. 1,27,362.74
+      ₹1,27,362.74
     </h3>
   </div>
 </div>
@@ -24,7 +24,7 @@ exports[`ExpenseSummary component renders with single expense 1`] = `
        
       expense
        totalling 
-      Rs. 14,000.94
+      ₹14,000.94
     </h3>
   </div>
 </div>

@@ -41,7 +41,7 @@ exports[`Should render Add Expense Page correctly 1`] = `
                   name="date"
                   placeholder="Date"
                   type="text"
-                  value="03/22/2024"
+                  value="03/29/2024"
                 />
                 <p
                   class="DateInput_screenReaderMessage DateInput_screenReaderMessage_1"

@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { addExpense } from "../actions/expenses";
+import { addExpense, startAddExpense } from "../actions/expenses";
 import { useNavigate } from "react-router-dom";
 import ExpenseForm from "./ExpenseForm";
 
@@ -9,7 +9,7 @@ export const AddExpense = (props) => {
     const nav = useNavigate();
     const handleAddExpense=(expense) => {
         // this.props.dispatch(addExpense(expense))
-        props.addExpense(expense);
+        props.startAddExpense(expense);
         nav('/');
     }
 
@@ -24,7 +24,7 @@ export const AddExpense = (props) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-    addExpense: (expense) => dispatch(addExpense(expense))
+    startAddExpense: (expense) => dispatch(startAddExpense(expense))
 });
 
 export default connect(undefined, mapDispatchToProps)(AddExpense);

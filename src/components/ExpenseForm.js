@@ -52,7 +52,7 @@ export default class ExpenseForm extends React.Component {
             this.setState(() => ({error: ''}));
             this.props.onSubmit({
                 description: this.state.description,
-                amount: parseFloat(this.state.amount, 10).toFixed(2),
+                amount: parseFloat(this.state.amount, 10).toFixed(2), //    the toFixed returns the number back to string
                 createdAt: this.state.createdAt.valueOf(),
                 note: this.state.note
             });
