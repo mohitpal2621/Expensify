@@ -6,20 +6,33 @@ export const addExpense = (expense) => ({
     expense
 });
 
+export const startAddExpense = ({ description='', note='', amount=0, createdAt=0 } = {}) => {
+    return async (dispatch) => {
+        const exp = {description, note, amount, createdAt};
+
+        const ref = await firebase.push(firebase.ref(db, 'expenses'), exp);
+
+        console.log("Inside the then block about to dispatch to the redux store, just after pushing to firebase database.");
+
+        dispatch(addExpense({ id: ref.key, ...exp }));
+        return ref.key;       
+    }
+}
+
 // REMOVE_EXPENSE action generator
 export const removeExpense = (id) => ({
     type: 'REMOVEEXPENSE',
     id
 });
 
-export const startAddExpense = ({ description='', note='', amount=0, createdAt=0 } = {}) => {
+export const startRemoveExpense = (id) => {
     return async (dispatch) => {
-        const exp = {description, note, amount, createdAt};
-
-        const ref = await firebase.push(firebase.ref(db, 'expenses'), exp);
-        console.log("Inside the then block about to dispatch to the redux store, just after pushing to firebase database.");
-        dispatch(addExpense({ id: ref.key, ...exp }));
-        return ref.key;       
+        await firebase.remove(firebase.ref(db, `expenses/${id}`)).then(() => {
+            console.log(`Data with ${id} is removed!`);
+            dispatch(removeExpense(id));
+        }).catch((e) => {
+            console.log("There is some error: ", e);
+        });
     }
 }
 
@@ -50,6 +63,8 @@ export const startSetExpenses = () => {
                     ...childSnapshot.val()
                 });
             });
+
+            console.log(expensesArr);
 
             // Dispatch the action after fetching expenses
             dispatch(setExpenses(expensesArr));

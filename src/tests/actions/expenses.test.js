@@ -1,4 +1,4 @@
-import { addExpense, editExpense, removeExpense, startAddExpense, setExpenses, startSetExpenses } from "../../actions/expenses";
+import { addExpense, editExpense, removeExpense, startAddExpense, setExpenses, startSetExpenses, startRemoveExpense } from "../../actions/expenses";
 import {default as db, firebase} from "../../firebase/firebase";
 import expenseReducer from "../../reducers/expenseReducer";
 import expenses from "../fixtures/expenses";
@@ -10,7 +10,6 @@ beforeEach(async () => {
     });
     await firebase.set(firebase.ref(db, 'expenses'), expensesData);
 })
-
 
 
 test("Should setup remove expense action object", () => {
@@ -122,10 +121,19 @@ test("Should fetch the expense from firebase", async () => {
     try {
         await startSetExpenses()(dispatch);
         expect(firebase.get).toHaveBeenCalledWith(firebase.ref(db, 'expenses'));
-
     } catch (error) {
         console.error(error);        
     }
+});
+
+test("should remove expenses from firebase", async () => {
+    const dispatch = jest.fn();
+    await startRemoveExpense(expenses[0].id)(dispatch);
+    expect(dispatch).toHaveBeenCalledWith(removeExpense(expenses[0].id));
+
+    await firebase.get(firebase.ref(db, `expenses/${expenses[0].id}`)).then((snapshot) => {
+        expect(snapshot.val()).toBeFalsy();
+    });
 });
 
 // test("Should setup add expense action object with default values", () => {
