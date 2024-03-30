@@ -1,14 +1,16 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import expenseReducer from '../reducers/expenseReducer';
 import filtersReducer from '../reducers/filterReducer';
 
 
+const rootreducer = combineReducers({
+    expenses: expenseReducer,
+    filters: filtersReducer
+})
+
 export default () => {
     const store = configureStore({
-        reducer: {
-            expenses: expenseReducer,
-            filters: filtersReducer
-        }
+        reducer: rootreducer
     });
 
     return store;

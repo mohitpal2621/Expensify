@@ -29,3 +29,33 @@ export const editExpense = (id, updates) => ({
     id,
     updates
 });
+
+export const setExpenses = (expenses) => ({
+    type: 'SETEXPENSES',
+    expenses
+});
+
+export const startSetExpenses = () => {
+    return async (dispatch) => {
+        try {
+            const expensesArr = [];
+            
+            // Wait for the data fetching to complete
+            const snapshot = await firebase.get(firebase.ref(db, 'expenses'));
+
+            // Process the snapshot
+            snapshot.forEach((childSnapshot) => {
+                expensesArr.push({
+                    id: childSnapshot.key,
+                    ...childSnapshot.val()
+                });
+            });
+
+            // Dispatch the action after fetching expenses
+            dispatch(setExpenses(expensesArr));
+        } catch (error) {
+            console.error("Error fetching expenses:", error);
+            // You might want to dispatch an action to handle errors here
+        }
+    };
+};

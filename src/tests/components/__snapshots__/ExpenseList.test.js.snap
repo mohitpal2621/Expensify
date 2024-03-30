@@ -28,7 +28,7 @@ exports[`Should render expense list with expenses 1`] = `
         </h3>
       </a>
       <p>
-        ₹140.00
+        Rs. 140.00
         -
         January 1st, 1970
       </p>
@@ -42,7 +42,7 @@ exports[`Should render expense list with expenses 1`] = `
         </h3>
       </a>
       <p>
-        ₹14,000.94
+        Rs. 14,000.94
         -
         December 28th, 1969
       </p>
@@ -56,7 +56,7 @@ exports[`Should render expense list with expenses 1`] = `
         </h3>
       </a>
       <p>
-        ₹1,13,221.80
+        Rs. 113,221.80
         -
         January 5th, 1970
       </p>

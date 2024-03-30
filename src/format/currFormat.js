@@ -1,10 +1,10 @@
-const curr = Intl.NumberFormat("en-IN", {
+const curr = Intl.NumberFormat("en-US", {
     style: "currency",           //Decimal, percent or currency
     currency: "INR",             //ISO code for countries' currencies
-    currencyDisplay: "symbol",   //symbol, code, name
+    currencyDisplay: "code",   //symbol, code, name
     useGrouping: "auto",
     minimumIntegerDigits: 1,
-    maximumFractionDigits: 10,
+    maximumFractionDigits: 2,
     minimumFractionDigits: 2,
 });
 
