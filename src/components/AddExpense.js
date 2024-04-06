@@ -7,6 +7,7 @@ import ExpenseForm from "./ExpenseForm";
 
 export const AddExpense = (props) => {
     const nav = useNavigate();
+    
     const handleAddExpense=(expense) => {
         // this.props.dispatch(addExpense(expense))
         props.startAddExpense(expense);

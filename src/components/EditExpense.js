@@ -3,7 +3,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import ExpenseForm from "./ExpenseForm";
-import { editExpense, removeExpense, startEditExpense, startRemoveExpense } from "../actions/expenses";
+import { startEditExpense, startRemoveExpense } from "../actions/expenses";
 
 export const EditExpense = () => {
     const { id } = useParams();

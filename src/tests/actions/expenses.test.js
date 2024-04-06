@@ -3,8 +3,17 @@ import {default as db, firebase} from "../../firebase/firebase";
 import expenseReducer from "../../reducers/expenseReducer";
 import expenses from "../fixtures/expenses";
 
+
+jest.mock('firebase/auth', () => ({
+    GoogleAuthProvider: jest.fn(() => ({
+      setCustomParameters: jest.fn(),
+    })),
+    getAuth: jest.fn(() => ({})),
+}));
+
 beforeEach(async () => {
     const expensesData = {};
+    
     expenses.forEach(({id, description, note, amount, createdAt}) => {
         expensesData[id] = {description,note,amount,createdAt}
     });

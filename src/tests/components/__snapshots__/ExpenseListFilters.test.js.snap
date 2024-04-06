@@ -38,7 +38,7 @@ exports[`Should render default ExpenseListFilter 1`] = `
               name="myDateId"
               placeholder="Start Date"
               type="text"
-              value="03/01/2024"
+              value="04/01/2024"
             />
             <p
               class="DateInput_screenReaderMessage DateInput_screenReaderMessage_1"
@@ -74,7 +74,7 @@ exports[`Should render default ExpenseListFilter 1`] = `
               name="myDateId"
               placeholder="End Date"
               type="text"
-              value="03/31/2024"
+              value="04/30/2024"
             />
             <p
               class="DateInput_screenReaderMessage DateInput_screenReaderMessage_1"

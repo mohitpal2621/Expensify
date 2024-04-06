@@ -23,6 +23,9 @@ exports[`Should render Header correctly 1`] = `
         Create
       </a>
     </nav>
+    <button>
+      Log Out
+    </button>
   </header>
 </div>
 `;

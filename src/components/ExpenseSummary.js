@@ -10,8 +10,6 @@ const ExpenseSummary = () => {
         return selectExpenses(state.expenses, state.filters)
     });
     const sum = expensesTotal(exp);
-    console.log(`SUM IS: ${sum} of type ${typeof sum}`);
-    console.log("I am formatting the currency");
     return (
         <div>
             {

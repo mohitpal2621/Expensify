@@ -7,10 +7,15 @@ import configureStore from '../../store/configureStore';
 import { AddExpense } from '../../components/AddExpense'; // Import the unconnected component
 import expenses from '../fixtures/expenses';
 
+jest.mock('firebase/auth', () => ({
+    GoogleAuthProvider: jest.fn(() => ({
+      setCustomParameters: jest.fn(),
+    })),
+    getAuth: jest.fn(() => ({})),
+}));
 
 test("Should render Add Expense Page correctly", () => {
     const store = configureStore();
-    console.log(store.getState());
     const { container } = render(
         <Provider store={store}>
             <MemoryRouter>

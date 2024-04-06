@@ -6,6 +6,13 @@ import { Provider } from 'react-redux';
 import configureStore from '../../store/configureStore';
 import { EditExpense } from '../../components/EditExpense'; // Import the unconnected component
 
+jest.mock('firebase/auth', () => ({
+    GoogleAuthProvider: jest.fn(() => ({
+      setCustomParameters: jest.fn(),
+    })),
+    getAuth: jest.fn(() => ({})),
+}));
+
 test("Should render Add Expense Page correctly", () => {
     const store = configureStore();
     console.log(store.getState());
