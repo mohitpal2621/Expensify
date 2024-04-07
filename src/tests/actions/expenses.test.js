@@ -11,13 +11,15 @@ jest.mock('firebase/auth', () => ({
     getAuth: jest.fn(() => ({})),
 }));
 
+const uid = 'thisismytestuid';
+
 beforeEach(async () => {
     const expensesData = {};
     
     expenses.forEach(({id, description, note, amount, createdAt}) => {
         expensesData[id] = {description,note,amount,createdAt}
     });
-    await firebase.set(firebase.ref(db, 'expenses'), expensesData);
+    await firebase.set(firebase.ref(db, `users/${uid}/expenses`), expensesData);
 })
 
 
@@ -49,6 +51,7 @@ test("Should setup add expense action object with provided values", () => {
 
 test("Should add expense to database and dispatch ADD_EXPENSE action", async () => {
     const dispatch = jest.fn(); // Mock dispatch function so test data doesn't get added to redux store
+    const getState = jest.fn(() => ({ auth: { uid } }));
     let id;
 
     const expenseData = {
@@ -60,13 +63,13 @@ test("Should add expense to database and dispatch ADD_EXPENSE action", async () 
 
     // Dispatch startAddExpense action with expense data
     try {
-        id = await startAddExpense(expenseData)(dispatch);
+        id = await startAddExpense(expenseData)(dispatch, getState);
         console.log("Expense added successfully to test database with id: ", id); // Log if expense added successfully
     } catch (error) {
         console.error("Error adding expense:", error); // Log if there's an error
     }
 
-    // firebase.onValue(firebase.ref(db, `expenses/${id}`), (snapshot) => {
+    // firebase.onValue(firebase.ref(db, `users/${uid}/expenses/${id}`), (snapshot) => {
     //     expect(snapshot.val()).toEqual(expenseData);
     // }, {
     //     onlyOnce: true
@@ -82,19 +85,20 @@ test("Should add expense to database and dispatch ADD_EXPENSE action", async () 
 
 test("Should add default expense to database and dispatch ADD_EXPENSE action", async () => {
     const dispatch = jest.fn(); // Mock dispatch function so test data doesn't get added to redux store
+    const getState = jest.fn(() => ({ auth: { uid } }));
     let id;
     
     const defaultData = { description:'', note:'', amount:0, createdAt: 0 };
 
     // Dispatch startAddExpense action with expense data
     try {
-        id = await startAddExpense({})(dispatch);
+        id = await startAddExpense({})(dispatch, getState);
         console.log("Expense empty default added successfully! with the id: ", id); // Log if expense added successfully
     } catch (error) {
         console.error("Error adding expense:", error); // Log if there's an error
     }
 
-    // firebase.onValue(firebase.ref(db, `expenses/${id}`), (snapshot) => {
+    // firebase.onValue(firebase.ref(db, `users/${uid}/expenses/${id}`), (snapshot) => {
     //     expect(snapshot.val()).toEqual(defaultData);
     // }, {
     //     onlyOnce: true
@@ -126,10 +130,10 @@ test("Should set expenses", () => {
 
 test("Should fetch the expense from firebase", async () => {
     const dispatch = jest.fn();
-
+    const getState = jest.fn(() => ({ auth: { uid } }));
     try {
-        await startSetExpenses()(dispatch);
-        expect(firebase.get).toHaveBeenCalledWith(firebase.ref(db, 'expenses'));
+        await startSetExpenses()(dispatch, getState);
+        expect(firebase.get).toHaveBeenCalledWith(firebase.ref(db, `users/${uid}/expenses`));
     } catch (error) {
         console.error(error);        
     }
@@ -137,22 +141,24 @@ test("Should fetch the expense from firebase", async () => {
 
 test("should remove expenses from firebase", async () => {
     const dispatch = jest.fn();
-    await startRemoveExpense(expenses[0].id)(dispatch);
+    const getState = jest.fn(() => ({ auth: { uid } }));
+    await startRemoveExpense(expenses[0].id)(dispatch, getState);
     expect(dispatch).toHaveBeenCalledWith(removeExpense(expenses[0].id));
 
-    await firebase.get(firebase.ref(db, `expenses/${expenses[0].id}`)).then((snapshot) => {
+    await firebase.get(firebase.ref(db, `users/${uid}/expenses/${expenses[0].id}`)).then((snapshot) => {
         expect(snapshot.val()).toBeFalsy();
     });
 });
 
 test("Should edit the expense", async () => {
     const dispatch = jest.fn();
+    const getState = jest.fn(() => ({ auth: { uid } }));
     const updates = {description:"House RENT", note:"Final month rent"};
-    await startEditExpense(expenses[1].id, updates)(dispatch);
+    await startEditExpense(expenses[1].id, updates)(dispatch, getState);
     expect(dispatch).toHaveBeenCalledWith(editExpense(expenses[1].id, updates));
     const { id, ...updatedExpense } = { ...expenses[1], ...updates };
     const changed = updatedExpense;
-    await firebase.get(firebase.ref(db, `expenses/${expenses[1].id}`)).then((snapshot) => {
+    await firebase.get(firebase.ref(db, `users/${uid}/expenses/${expenses[1].id}`)).then((snapshot) => {
         expect(snapshot.val()).toEqual(changed);
     });
 });

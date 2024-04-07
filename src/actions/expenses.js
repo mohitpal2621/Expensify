@@ -7,14 +7,17 @@ export const addExpense = (expense) => ({
 });
 
 export const startAddExpense = ({ description='', note='', amount=0, createdAt=0 } = {}) => {
-    return async (dispatch) => {
+    return async (dispatch, getState) => {
+        const uid = getState().auth.uid;
+
         const exp = {description, note, amount, createdAt};
 
-        const ref = await firebase.push(firebase.ref(db, 'expenses'), exp);
+        const ref = await firebase.push(firebase.ref(db, `users/${uid}/expenses`), exp);
 
         console.log("Inside the then block about to dispatch to the redux store, just after pushing to firebase database.");
 
         dispatch(addExpense({ id: ref.key, ...exp }));
+
         return ref.key;       
     }
 }
@@ -26,8 +29,9 @@ export const removeExpense = (id) => ({
 });
 
 export const startRemoveExpense = (id) => {
-    return async (dispatch) => {
-        await firebase.remove(firebase.ref(db, `expenses/${id}`)).then(() => {
+    return async (dispatch, getState) => {
+        const uid = getState().auth.uid;
+        await firebase.remove(firebase.ref(db, `users/${uid}/expenses/${id}`)).then(() => {
             console.log(`Data with ${id} is removed!`);
             dispatch(removeExpense(id));
         }).catch((e) => {
@@ -44,8 +48,9 @@ export const editExpense = (id, updates) => ({
 });
 
 export const startEditExpense = (id, updates) => {
-    return async (dispatch) => {
-        await firebase.update(firebase.ref(db, `expenses/${id}`), updates)
+    return async (dispatch, getState) => {
+        const uid = getState().auth.uid;
+        await firebase.update(firebase.ref(db, `users/${uid}/expenses/${id}`), updates)
         console.log(`Updated expense with id: ${id} in firebase`);
         dispatch(editExpense(id, updates));
         console.log(`Now updated the expense in redux store as well`);
@@ -58,12 +63,13 @@ export const setExpenses = (expenses) => ({
 });
 
 export const startSetExpenses = () => {
-    return async (dispatch) => {
+    return async (dispatch, getState) => {
+        const uid = getState().auth.uid;
         try {
             const expensesArr = [];
             
             // Wait for the data fetching to complete
-            const snapshot = await firebase.get(firebase.ref(db, 'expenses'));
+            const snapshot = await firebase.get(firebase.ref(db, `users/${uid}/expenses`));
 
             // Process the snapshot
             snapshot.forEach((childSnapshot) => {
