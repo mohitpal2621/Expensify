@@ -3,10 +3,27 @@
 exports[`should render the dashboard page 1`] = `
 <div>
   <div>
+    <div
+      class="page-header"
+    >
+      <div
+        class="content-container"
+      >
+        <div
+          class="page-header__actions"
+        >
+          <a
+            class="button"
+            href="/create"
+          >
+            Add Expense
+          </a>
+        </div>
+      </div>
+    </div>
     <div>
       Mock ExpenseListFilters
     </div>
-    <div />
     <div>
       Mock ExpenseList
     </div>

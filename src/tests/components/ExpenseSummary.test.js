@@ -4,6 +4,11 @@ import ExpenseSummary from '../../components/ExpenseSummary';
 import { useSelector } from 'react-redux';
 import expenses from '../fixtures/expenses';
 
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'), // Use actual implementation of other components
+  Link: jest.fn(), // Mock Link component
+}));
+
 jest.mock('react-redux', () => ({
   ...jest.requireActual('react-redux'), // Use actual implementation of other hooks
   useSelector: jest.fn(), // Mock useSelector hook

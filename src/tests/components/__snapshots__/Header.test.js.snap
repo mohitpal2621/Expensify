@@ -2,30 +2,30 @@
 
 exports[`Should render Header correctly 1`] = `
 <div>
-  <header>
-    <h1>
-      Expensify
-    </h1>
-    <nav
-      id="navbars"
+  <header
+    class="header"
+  >
+    <div
+      class="content-container"
     >
-      <a
-        aria-current="page"
-        class="active"
-        href="/"
+      <div
+        class="header__content"
       >
-        Home
-      </a>
-      <a
-        class="inactive"
-        href="/create"
-      >
-        Create
-      </a>
-    </nav>
-    <button>
-      Log Out
-    </button>
+        <a
+          class="header__title"
+          href="/dashboard"
+        >
+          <h1>
+            Expensify
+          </h1>
+        </a>
+        <button
+          class="button button--link"
+        >
+          Log Out
+        </button>
+      </div>
+    </div>
   </header>
 </div>
 `;

@@ -2,64 +2,142 @@
 
 exports[`Should render expense list with empty expenses 1`] = `
 <div>
-  <div>
-    <h1>
-      This is the Expense List
-    </h1>
-    <p>
-      No Expense
-    </p>
+  <div
+    class="content-container"
+  >
+    <div
+      class="list-header"
+    >
+      <div
+        class="show-for-mobile"
+      >
+        Expenses
+      </div>
+      <div
+        class="show-for-desktop"
+      >
+        Expense
+      </div>
+      <div
+        class="show-for-desktop"
+      >
+        Amount
+      </div>
+    </div>
+    <div
+      class="list-body"
+    >
+      <div
+        class="list-item list-item--message"
+      >
+        <span>
+          No Expenses
+        </span>
+      </div>
+    </div>
   </div>
 </div>
 `;
 
 exports[`Should render expense list with expenses 1`] = `
 <div>
-  <div>
-    <h1>
-      This is the Expense List
-    </h1>
-    <div>
+  <div
+    class="content-container"
+  >
+    <div
+      class="list-header"
+    >
+      <div
+        class="show-for-mobile"
+      >
+        Expenses
+      </div>
+      <div
+        class="show-for-desktop"
+      >
+        Expense
+      </div>
+      <div
+        class="show-for-desktop"
+      >
+        Amount
+      </div>
+    </div>
+    <div
+      class="list-body"
+    >
       <a
+        class="list-item"
         href="/edit/1"
       >
-        <h3>
-          Gum
+        <div
+          class="list-item__div"
+        >
+          <h3
+            class="list-item__title"
+          >
+            Gum
+          </h3>
+          <span
+            class="list-item__sub-title"
+          >
+            January 1st, 1970
+          </span>
+        </div>
+        <h3
+          class="list-item__data"
+        >
+          Rs. 140.00
         </h3>
       </a>
-      <p>
-        Rs. 140.00
-        -
-        January 1st, 1970
-      </p>
-    </div>
-    <div>
       <a
+        class="list-item"
         href="/edit/2"
       >
-        <h3>
-          Rent
+        <div
+          class="list-item__div"
+        >
+          <h3
+            class="list-item__title"
+          >
+            Rent
+          </h3>
+          <span
+            class="list-item__sub-title"
+          >
+            December 28th, 1969
+          </span>
+        </div>
+        <h3
+          class="list-item__data"
+        >
+          Rs. 14,000.94
         </h3>
       </a>
-      <p>
-        Rs. 14,000.94
-        -
-        December 28th, 1969
-      </p>
-    </div>
-    <div>
       <a
+        class="list-item"
         href="/edit/3"
       >
-        <h3>
-          Credit
+        <div
+          class="list-item__div"
+        >
+          <h3
+            class="list-item__title"
+          >
+            Credit
+          </h3>
+          <span
+            class="list-item__sub-title"
+          >
+            January 5th, 1970
+          </span>
+        </div>
+        <h3
+          class="list-item__data"
+        >
+          Rs. 113,221.80
         </h3>
       </a>
-      <p>
-        Rs. 113,221.80
-        -
-        January 5th, 1970
-      </p>
     </div>
   </div>
 </div>

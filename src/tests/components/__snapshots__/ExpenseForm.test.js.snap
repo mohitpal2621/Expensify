@@ -2,180 +2,207 @@
 
 exports[`Should call onSubmit PROP for valid form submission 1`] = `
 <div>
-  <div>
-    <form
-      data-testid="expense-form"
-    >
-      <input
-        data-testid="description-input"
-        placeholder="Description"
-        type="text"
-        value="Gum"
-      />
-      <input
-        data-testid="amount-input"
-        placeholder="Amount"
-        type="text"
-        value="140"
-      />
-      <div>
-        SingleDatePicker
-      </div>
-      <textarea
-        data-testid="note-textarea"
-        placeholder="Add a note for your expense (optional)"
-      />
+  <form
+    class="form"
+    data-testid="expense-form"
+  >
+    <input
+      class="text-input"
+      data-testid="description-input"
+      placeholder="Description"
+      type="text"
+      value="Gum"
+    />
+    <input
+      class="text-input"
+      data-testid="amount-input"
+      placeholder="Amount"
+      type="text"
+      value="140"
+    />
+    <div>
+      SingleDatePicker
+    </div>
+    <textarea
+      class="textarea"
+      data-testid="note-textarea"
+      placeholder="Add a note for your expense (optional)"
+    />
+    <div>
       <button
+        class="button"
         data-testid="expense-form-submit"
       >
-        Add Expense
+        Save Expense
       </button>
-    </form>
-  </div>
+    </div>
+  </form>
 </div>
 `;
 
 exports[`Should render ERROR for invalid form submission 1`] = `
 <div>
-  <div>
-    <form
-      data-testid="expense-form"
-    >
-      <input
-        data-testid="description-input"
-        placeholder="Description"
-        type="text"
-        value=""
-      />
-      <input
-        data-testid="amount-input"
-        placeholder="Amount"
-        type="text"
-        value=""
-      />
-      <div>
-        SingleDatePicker
-      </div>
-      <textarea
-        data-testid="note-textarea"
-        placeholder="Add a note for your expense (optional)"
-      />
+  <form
+    class="form"
+    data-testid="expense-form"
+  >
+    <input
+      class="text-input"
+      data-testid="description-input"
+      placeholder="Description"
+      type="text"
+      value=""
+    />
+    <input
+      class="text-input"
+      data-testid="amount-input"
+      placeholder="Amount"
+      type="text"
+      value=""
+    />
+    <div>
+      SingleDatePicker
+    </div>
+    <textarea
+      class="textarea"
+      data-testid="note-textarea"
+      placeholder="Add a note for your expense (optional)"
+    />
+    <div>
       <button
+        class="button"
         data-testid="expense-form-submit"
       >
-        Add Expense
+        Save Expense
       </button>
-    </form>
-  </div>
+    </div>
+  </form>
 </div>
 `;
 
 exports[`Should render ERROR for invalid form submission 2`] = `
 <div>
-  <div>
-    <form
-      data-testid="expense-form"
+  <form
+    class="form"
+    data-testid="expense-form"
+  >
+    <input
+      class="text-input"
+      data-testid="description-input"
+      placeholder="Description"
+      type="text"
+      value=""
+    />
+    <input
+      class="text-input"
+      data-testid="amount-input"
+      placeholder="Amount"
+      type="text"
+      value=""
+    />
+    <div>
+      SingleDatePicker
+    </div>
+    <textarea
+      class="textarea"
+      data-testid="note-textarea"
+      placeholder="Add a note for your expense (optional)"
+    />
+    <p
+      class="form__error"
     >
-      <input
-        data-testid="description-input"
-        placeholder="Description"
-        type="text"
-        value=""
-      />
-      <input
-        data-testid="amount-input"
-        placeholder="Amount"
-        type="text"
-        value=""
-      />
-      <div>
-        SingleDatePicker
-      </div>
-      <textarea
-        data-testid="note-textarea"
-        placeholder="Add a note for your expense (optional)"
-      />
-      <p>
-        Please provide description and amount.
-      </p>
+      Please provide description and amount.
+    </p>
+    <div>
       <button
+        class="button"
         data-testid="expense-form-submit"
       >
-        Add Expense
+        Save Expense
       </button>
-    </form>
-  </div>
+    </div>
+  </form>
 </div>
 `;
 
 exports[`Should render expense form WITH props correctly 1`] = `
 <div>
-  <div>
-    <form
-      data-testid="expense-form"
+  <form
+    class="form"
+    data-testid="expense-form"
+  >
+    <input
+      class="text-input"
+      data-testid="description-input"
+      placeholder="Description"
+      type="text"
+      value="Credit"
+    />
+    <input
+      class="text-input"
+      data-testid="amount-input"
+      placeholder="Amount"
+      type="text"
+      value="113221.8"
+    />
+    <div>
+      SingleDatePicker
+    </div>
+    <textarea
+      class="textarea"
+      data-testid="note-textarea"
+      placeholder="Add a note for your expense (optional)"
     >
-      <input
-        data-testid="description-input"
-        placeholder="Description"
-        type="text"
-        value="Credit"
-      />
-      <input
-        data-testid="amount-input"
-        placeholder="Amount"
-        type="text"
-        value="113221.8"
-      />
-      <div>
-        SingleDatePicker
-      </div>
-      <textarea
-        data-testid="note-textarea"
-        placeholder="Add a note for your expense (optional)"
-      >
-        Credit card bills
-      </textarea>
+      Credit card bills
+    </textarea>
+    <div>
       <button
+        class="button"
         data-testid="expense-form-submit"
       >
-        Add Expense
+        Save Expense
       </button>
-    </form>
-  </div>
+    </div>
+  </form>
 </div>
 `;
 
 exports[`Should render expense form correctly 1`] = `
 <div>
-  <div>
-    <form
-      data-testid="expense-form"
-    >
-      <input
-        data-testid="description-input"
-        placeholder="Description"
-        type="text"
-        value=""
-      />
-      <input
-        data-testid="amount-input"
-        placeholder="Amount"
-        type="text"
-        value=""
-      />
-      <div>
-        SingleDatePicker
-      </div>
-      <textarea
-        data-testid="note-textarea"
-        placeholder="Add a note for your expense (optional)"
-      />
+  <form
+    class="form"
+    data-testid="expense-form"
+  >
+    <input
+      class="text-input"
+      data-testid="description-input"
+      placeholder="Description"
+      type="text"
+      value=""
+    />
+    <input
+      class="text-input"
+      data-testid="amount-input"
+      placeholder="Amount"
+      type="text"
+      value=""
+    />
+    <div>
+      SingleDatePicker
+    </div>
+    <textarea
+      class="textarea"
+      data-testid="note-textarea"
+      placeholder="Add a note for your expense (optional)"
+    />
+    <div>
       <button
+        class="button"
         data-testid="expense-form-submit"
       >
-        Add Expense
+        Save Expense
       </button>
-    </form>
-  </div>
+    </div>
+  </form>
 </div>
 `;

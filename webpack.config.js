@@ -5,7 +5,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 if(process.env.NODE_ENV === 'test'){
-    console.log("WE ARE IN TEST");
     require('dotenv').config({ path: '.env.test' });
 }else if(process.env.NODE_ENV === 'development'){
     require('dotenv').config({ path: '.env.development' });
@@ -22,7 +21,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(js|jsx)$/,
+                test: /\.js$|\.jsx/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader'
@@ -35,6 +34,10 @@ module.exports = {
                     'css-loader',
                     'sass-loader'
                 ]
+            },
+            {
+                test: /\.gif$/,
+                type: 'asset/resource'
             }
         ]
     },

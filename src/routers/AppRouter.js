@@ -12,6 +12,7 @@ import AddExpense from '../components/AddExpense';
 import ExpenseDashboardPage from '../components/ExpenseDashboard';
 import PublicRoute from './PublicRoute.js';
 import PrivateRoute from './PrivateRoute.js';
+import LoadingPage from '../components/LoadingPage';
 
 
 const AppRouter = () => {
@@ -45,7 +46,7 @@ const AppRouter = () => {
     }, []);
 
     if(loading) {
-        return <div>Loading...</div>
+        return <LoadingPage />
     }
 
     return (

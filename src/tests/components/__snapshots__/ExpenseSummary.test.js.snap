@@ -2,30 +2,60 @@
 
 exports[`ExpenseSummary component renders with multiple expenses 1`] = `
 <div>
-  <div>
-    <h3>
-      Viewing 
-      3
-       
-      expenses
-       totalling 
-      Rs. 127,362.74
-    </h3>
+  <div
+    class="page-header"
+  >
+    <div
+      class="content-container"
+    >
+      <h1
+        class="page-header__title"
+      >
+        Viewing 
+        <span>
+          3
+        </span>
+         
+        expenses
+         totalling 
+        <span>
+          Rs. 127,362.74
+        </span>
+      </h1>
+      <div
+        class="page-header__actions"
+      />
+    </div>
   </div>
 </div>
 `;
 
 exports[`ExpenseSummary component renders with single expense 1`] = `
 <div>
-  <div>
-    <h3>
-      Viewing 
-      1
-       
-      expense
-       totalling 
-      Rs. 14,000.94
-    </h3>
+  <div
+    class="page-header"
+  >
+    <div
+      class="content-container"
+    >
+      <h1
+        class="page-header__title"
+      >
+        Viewing 
+        <span>
+          1
+        </span>
+         
+        expense
+         totalling 
+        <span>
+          Rs. 14,000.94
+        </span>
+      </h1>
+      <div
+        class="page-header__actions"
+      />
+    </div>
   </div>
 </div>
 `;

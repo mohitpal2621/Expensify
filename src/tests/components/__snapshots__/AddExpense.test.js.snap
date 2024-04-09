@@ -3,20 +3,35 @@
 exports[`Should render Add Expense Page correctly 1`] = `
 <div>
   <div>
-    <h1>
-      Add Expense
-    </h1>
-    <div>
+    <div
+      class="page-header"
+    >
+      <div
+        class="content-container"
+      >
+        <h1
+          class="page-header__title"
+        >
+          Add Expense
+        </h1>
+      </div>
+    </div>
+    <div
+      class="content-container"
+    >
       <form
+        class="form"
         data-testid="expense-form"
       >
         <input
+          class="text-input"
           data-testid="description-input"
           placeholder="Description"
           type="text"
           value=""
         />
         <input
+          class="text-input"
           data-testid="amount-input"
           placeholder="Amount"
           type="text"
@@ -41,7 +56,7 @@ exports[`Should render Add Expense Page correctly 1`] = `
                   name="date"
                   placeholder="Date"
                   type="text"
-                  value="04/07/2024"
+                  value="04/10/2024"
                 />
                 <p
                   class="DateInput_screenReaderMessage DateInput_screenReaderMessage_1"
@@ -54,14 +69,18 @@ exports[`Should render Add Expense Page correctly 1`] = `
           </div>
         </div>
         <textarea
+          class="textarea"
           data-testid="note-textarea"
           placeholder="Add a note for your expense (optional)"
         />
-        <button
-          data-testid="expense-form-submit"
-        >
-          Add Expense
-        </button>
+        <div>
+          <button
+            class="button"
+            data-testid="expense-form-submit"
+          >
+            Save Expense
+          </button>
+        </div>
       </form>
     </div>
   </div>

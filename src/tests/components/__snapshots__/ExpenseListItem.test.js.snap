@@ -2,19 +2,29 @@
 
 exports[`Should render a list item with given expense 1`] = `
 <div>
-  <div>
-    <a
-      href="/edit/1"
+  <a
+    class="list-item"
+    href="/edit/1"
+  >
+    <div
+      class="list-item__div"
     >
-      <h3>
+      <h3
+        class="list-item__title"
+      >
         Gum
       </h3>
-    </a>
-    <p>
+      <span
+        class="list-item__sub-title"
+      >
+        January 1st, 1970
+      </span>
+    </div>
+    <h3
+      class="list-item__data"
+    >
       Rs. 140.00
-      -
-      January 1st, 1970
-    </p>
-  </div>
+    </h3>
+  </a>
 </div>
 `;

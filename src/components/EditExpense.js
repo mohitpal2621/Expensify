@@ -13,20 +13,27 @@ export const EditExpense = () => {
     
     return (
         <div>
-            <ExpenseForm
-                expense={exp}
-                onSubmit={(exp) => {
-                    dispatch(startEditExpense(id, exp));
-                    nav("/");
-                }}
-            />
-            <button onClick={() => {
-                    dispatch(startRemoveExpense(id));
-                    nav("/");
-                }}
-            >
-                Remove button
-            </button>
+            <div className="page-header">
+                <div className="content-container">
+                    <h1 className="page-header__title">Edit Expense</h1>
+                </div>
+            </div>
+            <div className="content-container">
+                <ExpenseForm
+                    expense={exp}
+                    onSubmit={(exp) => {
+                        dispatch(startEditExpense(id, exp));
+                        nav("/");
+                    }}
+                />
+                <button className="button button--secondary" onClick={() => {
+                        dispatch(startRemoveExpense(id));
+                        nav("/");
+                    }}
+                >
+                    Remove button
+                </button>
+            </div>
         </div>
     );
 };
