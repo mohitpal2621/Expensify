@@ -31,7 +31,7 @@ export const EditExpense = () => {
                         nav("/");
                     }}
                 >
-                    Remove button
+                    Remove
                 </button>
             </div>
         </div>
