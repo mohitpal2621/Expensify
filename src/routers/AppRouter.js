@@ -19,27 +19,29 @@ const AppRouter = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const dispatch = useDispatch();
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, async (user) => {
             if(user){
                 dispatch(login(user.uid));
                 if (location.pathname === "/") {
-                    setLoading(true);
                     navigate("/dashboard");
                 }
-
+                
                 dispatch(startSetExpenses())
-                .then(() => setLoading(false))
+                .then(() => {
+                    setLoading(false);
+                })
                 .catch(error => {
                     console.error("Error fetching expenses:", error);
                     setLoading(false);
-                })
+                });
             } else{
                 dispatch(logout());
                 console.log("Logged OUT");
                 navigate("/");
+                setLoading(false);
             }
         });
         return unsubscribe;
